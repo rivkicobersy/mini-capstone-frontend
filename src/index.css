@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+#posts-index img {
+  width: 300px;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
+#root {
+  font-family: OpenSans;
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png');
+}
+ .card img {
+   height: 300px;
+   object-fit: cover;
+ }
+
+ .navbar-brand {
+   font-family: 'Creepster', cursive;
+   font-size: 50px !important;
+ }

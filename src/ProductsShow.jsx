@@ -2,6 +2,7 @@ export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
+    props.onUpdateProduct(props.product.id, params);
     event.target.reset();
   };
 
@@ -11,23 +12,28 @@ export function ProductsShow(props) {
 
   return (
     <div>
-      <h1>Product information</h1>
+      <h3>Product information</h3>
       <p>Name: {props.product.name}</p>
       <p>Price: {props.product.price}</p>
       <p>Description: {props.product.description}</p>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input defaultValue={props.product.name} name="name" type="text" />
+          Name: <input className="form-control" defaultValue={props.product.name} name="name" type="text" />
         </div>
         <div>
-          Price: <input defaultValue={props.product.price} name="price" type="price" />
+          Price: <input className="form-control" defaultValue={props.product.price} name="price" type="price" />
         </div>
         <div>
-          Description: <input defaultValue={props.product.description} name="description" type="text" />
+          Description:{" "}
+          <input className="form-control" defaultValue={props.product.description} name="description" type="text" />
         </div>
-        <button type="submit">Update product</button>
-        <button onClick={handleClick}>Destroy product</button>
+        <button className="btn btn-primary mt-3" type="submit">
+          Update
+        </button>
       </form>
+      <button className="btn btn-primary mt-3" onClick={handleClick}>
+        Destroy post
+      </button>
     </div>
   );
 }

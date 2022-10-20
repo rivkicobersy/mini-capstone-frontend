@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import { ProductsIndex } from "./ProductsIndex";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsShow } from "./ProductsShow";
-import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
+import { Modal } from "./Modal";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -16,7 +15,6 @@ export function Home() {
   const handleIndexProducts = () => {
     console.log("handleIndexProducts");
     axios.get("http://localhost:3000/products.json").then((response) => {
-      console.log(response.data);
       setProducts(response.data);
     });
   };
@@ -67,7 +65,7 @@ export function Home() {
   useEffect(handleIndexProducts, []);
 
   return (
-    <div>
+    <div className="container">
       <Signup />
       <Login />
       <ProductsNew onCreateProduct={handleCreateProduct} />

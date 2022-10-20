@@ -6,19 +6,21 @@ export function ProductsNew(props) {
   };
 
   return (
-    <div>
+    <div id="products-new">
       <h1>New Product</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          Name: <input name="name" className="form-control" type="text" />
         </div>
         <div>
-          Price: <input name="price" type="price" />
+          Price: <input name="price" className="form-control" type="price" />
         </div>
         <div>
-          Description: <input name="description" type="text" />
+          Description: <input name="description" className="form-control" type="text" />
         </div>
-        <button type="submit">Create product</button>
+        <button className="btn btn-primary mt-3" type="submit">
+          Create product
+        </button>
       </form>
     </div>
   );
