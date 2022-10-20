@@ -1,3 +1,14 @@
-export function ProductsIndex() {
-  return <h1>Hello</h1>;
+export function ProductsIndex(props) {
+  return (
+    <div>
+      <h1>All products</h1>
+      {props.products.map((product) => (
+        <div>
+          <h2>{product.name}</h2>
+          <p>Price: ${product.price}</p>
+          <p>Description: {product.description}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
