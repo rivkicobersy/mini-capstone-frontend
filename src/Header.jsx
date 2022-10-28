@@ -1,13 +1,14 @@
 import { LogoutLink } from "./LogoutLink";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Productr
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,33 +23,38 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-index">
-                  All posts
-                </a>
+                <Link className="nav-link active" aria-current="page" to="/">
+                  All products
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-new">
-                  New posts
-                </a>
+                <Link className="nav-link" to="/products/new">
+                  New products
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#signup">
-                  Signup
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#login">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <LogoutLink className="nav-link" />
-              </li>
+              {localStorage.jwt === undefined ? (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/signup">
+                      Signup
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <LogoutLink className="nav-link" />
+                </li>
+              )}
             </ul>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

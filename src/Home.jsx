@@ -1,10 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProductsIndex } from "./ProductsIndex";
-import { ProductsNew } from "./ProductsNew";
 import { ProductsShow } from "./ProductsShow";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
 import { Modal } from "./Modal";
 
 export function Home() {
@@ -16,14 +13,6 @@ export function Home() {
     console.log("handleIndexProducts");
     axios.get("http://localhost:3000/products.json").then((response) => {
       setProducts(response.data);
-    });
-  };
-
-  const handleCreateProduct = (params, successCallback) => {
-    console.log("handleCreateProduct", params);
-    axios.post("http://localhost:3000/products.json", params).then((response) => {
-      setProducts([...products, response.data]);
-      successCallback();
     });
   };
 
@@ -50,7 +39,7 @@ export function Home() {
           }
         })
       );
-      successCallback();
+      // successCallback();
       handleHideProduct();
     });
   };
@@ -66,9 +55,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <ProductsNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow

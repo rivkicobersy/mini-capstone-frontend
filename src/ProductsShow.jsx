@@ -16,6 +16,7 @@ export function ProductsShow(props) {
       <p>Name: {props.product.name}</p>
       <p>Price: {props.product.price}</p>
       <p>Description: {props.product.description}</p>
+      <h4>Edit product</h4>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input className="form-control" defaultValue={props.product.name} name="name" type="text" />
@@ -26,6 +27,9 @@ export function ProductsShow(props) {
         <div>
           Description:{" "}
           <input className="form-control" defaultValue={props.product.description} name="description" type="text" />
+        </div>
+        <div>
+          Image: <input className="form-control" defaultValue={props.product.image} name="image" type="text" />
         </div>
         <button className="btn btn-primary mt-3" type="submit">
           Update
