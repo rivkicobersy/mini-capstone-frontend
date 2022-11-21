@@ -20,7 +20,7 @@ export function ProductsNew() {
       <h1>New Product</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" className="form-control" type="text" />
+          Name!!: <input name="name" className="form-control" type="text" />
         </div>
         <div>
           Price: <input name="price" className="form-control" type="price" />
