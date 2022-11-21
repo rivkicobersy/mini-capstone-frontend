@@ -5,7 +5,7 @@ export function ProductsIndex(props) {
 
   return (
     <div id="products-index">
-      <h1>All products</h1>
+      <h1>All products !!!</h1>
       Search filter:{" "}
       <input value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} type="text" list="names" />
       <datalist id="names">
